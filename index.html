@@ -1,0 +1,727 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV | Diana Anahi Herrera García</title>
+
+<style>
+  :root{
+    --navy:#18283b;
+    --blue:#315a7d;
+    --accent:#8c6fb5;
+    --light:#f4f6f9;
+    --text:#27313d;
+    --muted:#667384;
+    --white:#fff;
+    --line:#dfe4ea;
+  }
+
+  *{
+    box-sizing:border-box;
+  }
+
+  body{
+    margin:0;
+    background:#e9edf2;
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    line-height:1.5;
+  }
+
+  .toolbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:14px;
+    background:rgba(24,40,59,.96);
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+  }
+
+  .btn{
+    border:0;
+    border-radius:9px;
+    padding:10px 16px;
+    background:#fff;
+    color:var(--navy);
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    transition:.2s;
+  }
+
+  .btn:hover{
+    transform:translateY(-2px);
+    background:#f0f2f5;
+  }
+
+  .btn.primary{
+    background:#bba8d6;
+    color:#fff;
+  }
+
+  .cv{
+    width:min(1000px, calc(100% - 28px));
+    margin:28px auto;
+    background:#fff;
+    box-shadow:0 15px 45px rgba(24,40,59,.15);
+    display:grid;
+    grid-template-columns:31% 69%;
+    min-height:1100px;
+  }
+
+  aside{
+    background:var(--navy);
+    color:#fff;
+    padding:42px 28px;
+  }
+
+  .profile{
+    width:104px;
+    height:104px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),#526f91);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:20px;
+    border:4px solid rgba(255,255,255,.25);
+  }
+
+  .side-title{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#c8d4e1;
+    margin:29px 0 12px;
+    font-weight:800;
+  }
+
+  .contact a,
+  .contact div{
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    margin:10px 0;
+    display:block;
+    word-break:break-word;
+  }
+
+  .contact a:hover{
+    text-decoration:underline;
+  }
+
+  .skill{
+    margin:11px 0;
+    font-size:13px;
+  }
+
+  .skill span{
+    display:block;
+    background:rgba(255,255,255,.14);
+    height:6px;
+    border-radius:8px;
+    margin-top:5px;
+    overflow:hidden;
+  }
+
+  .skill i{
+    display:block;
+    height:100%;
+    background:#bba8d6;
+    border-radius:8px;
+  }
+
+  .language{
+    font-size:13px;
+    margin:8px 0;
+  }
+
+  main{
+    padding:46px 48px;
+  }
+
+  .name{
+    margin:0;
+    color:var(--navy);
+    font-size:40px;
+    line-height:1.08;
+    letter-spacing:-1px;
+  }
+
+  .surname{
+    color:var(--accent);
+  }
+
+  .headline{
+    margin:9px 0 26px;
+    color:var(--blue);
+    font-weight:700;
+    font-size:16px;
+  }
+
+  .intro{
+    background:var(--light);
+    border-left:5px solid var(--accent);
+    padding:17px 20px;
+    border-radius:0 10px 10px 0;
+    margin-bottom:28px;
+    font-size:14px;
+  }
+
+  section{
+    margin:0 0 29px;
+  }
+
+  h2{
+    color:var(--navy);
+    font-size:16px;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    margin:0 0 14px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--line);
+  }
+
+  .item{
+    margin-bottom:20px;
+  }
+
+  .item-head{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:flex-start;
+  }
+
+  h3{
+    margin:0;
+    color:var(--blue);
+    font-size:16px;
+  }
+
+  .date{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .place{
+    font-size:13px;
+    font-weight:700;
+    margin:3px 0 7px;
+  }
+
+  ul{
+    margin:8px 0 0;
+    padding-left:19px;
+    font-size:13.5px;
+  }
+
+  li{
+    margin:5px 0;
+  }
+
+  .project{
+    border:1px solid #ddd6e9;
+    background:linear-gradient(135deg,#faf8fc,#fff);
+    border-radius:12px;
+    padding:18px 19px;
+  }
+
+  .tag{
+    display:inline-block;
+    background:#eee8f5;
+    color:#6e5591;
+    border-radius:20px;
+    padding:4px 9px;
+    font-size:11px;
+    font-weight:800;
+    margin:5px 5px 0 0;
+  }
+
+  .edu{
+    border-left:3px solid #d7dce3;
+    padding-left:14px;
+    margin-bottom:17px;
+  }
+
+  .edu strong{
+    color:var(--navy);
+  }
+
+  .footer-note{
+    font-size:11px;
+    color:var(--muted);
+    text-align:center;
+    margin-top:30px;
+  }
+
+  @media(max-width:760px){
+
+    .cv{
+      grid-template-columns:1fr;
+      margin:15px auto;
+    }
+
+    aside{
+      padding:30px 25px;
+    }
+
+    main{
+      padding:32px 25px;
+    }
+
+    .name{
+      font-size:32px;
+    }
+
+    .item-head{
+      display:block;
+    }
+
+    .date{
+      display:block;
+      margin-top:4px;
+    }
+  }
+
+  @media print{
+
+    @page{
+      size:A4;
+      margin:0;
+    }
+
+    body{
+      background:#fff;
+    }
+
+    .toolbar{
+      display:none;
+    }
+
+    .cv{
+      width:100%;
+      margin:0;
+      box-shadow:none;
+      min-height:auto;
+    }
+
+    aside,
+    .project{
+      print-color-adjust:exact;
+      -webkit-print-color-adjust:exact;
+    }
+
+    a{
+      color:inherit;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- BOTONES -->
+<div class="toolbar">
+
+  <button class="btn primary" onclick="window.print()">
+    🖨️ Imprimir / Guardar PDF
+  </button>
+
+  <button class="btn" onclick="descargarCV()">
+    ⬇️ Descargar HTML
+  </button>
+
+  <a class="btn" href="mailto:dianaherreragarcia0@gmail.com">
+    ✉️ Enviar correo
+  </a>
+
+</div>
+
+
+<!-- CV -->
+<div class="cv" id="cv">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <aside>
+
+    <div class="profile">
+      DH
+    </div>
+
+
+    <!-- CONTACTO -->
+    <div class="side-title">
+      Contacto
+    </div>
+
+    <div class="contact">
+
+      <a href="mailto:dianaherreragarcia0@gmail.com">
+        ✉️ dianaherreragarcia0@gmail.com
+      </a>
+
+      <div>
+        📍 Guadalajara, Jalisco
+      </div>
+
+    </div>
+
+
+    <!-- HABILIDADES -->
+    <div class="side-title">
+      Habilidades
+    </div>
+
+    <div class="skill">
+      Liderazgo
+      <span>
+        <i style="width:82%"></i>
+      </span>
+    </div>
+
+    <div class="skill">
+      Comunicación asertiva
+      <span>
+        <i style="width:88%"></i>
+      </span>
+    </div>
+
+    <div class="skill">
+      Responsabilidad
+      <span>
+        <i style="width:95%"></i>
+      </span>
+    </div>
+
+    <div class="skill">
+      Resolución de problemas
+      <span>
+        <i style="width:84%"></i>
+      </span>
+    </div>
+
+    <div class="skill">
+      Organización
+      <span>
+        <i style="width:90%"></i>
+      </span>
+    </div>
+
+    <div class="skill">
+      Trabajo en equipo
+      <span>
+        <i style="width:92%"></i>
+      </span>
+    </div>
+
+    <div class="skill">
+      Adaptabilidad
+      <span>
+        <i style="width:88%"></i>
+      </span>
+    </div>
+
+
+    <!-- OFFICE -->
+    <div class="side-title">
+      Microsoft Office
+    </div>
+
+    <div class="language">
+      Word · Básico
+    </div>
+
+    <div class="language">
+      Excel · Básico
+    </div>
+
+    <div class="language">
+      PowerPoint · Básico
+    </div>
+
+
+    <!-- IDIOMAS -->
+    <div class="side-title">
+      Idiomas
+    </div>
+
+    <div class="language">
+      Español · Nativo
+    </div>
+
+    <div class="language">
+      Inglés · Básico
+    </div>
+
+  </aside>
+
+
+  <!-- COLUMNA DERECHA -->
+  <main>
+
+    <h1 class="name">
+      Diana Anahi
+      <span class="surname">
+        Herrera García
+      </span>
+    </h1>
+
+
+    <div class="headline">
+      Estudiante de Ingeniería en Negocios · Atención al cliente · Desarrollo de soluciones digitales
+    </div>
+
+
+    <!-- PERFIL -->
+    <div class="intro">
+
+      Soy estudiante de Ingeniería en Negocios en la Universidad de Guadalajara,
+      actualmente cursando el tercer semestre. Me considero una persona responsable,
+      organizada y con facilidad para aprender. Busco desarrollar experiencia profesional
+      en el área administrativa y de negocios, aplicando mis conocimientos, fortaleciendo
+      mis habilidades y contribuyendo con compromiso y una actitud de mejora continua.
+
+    </div>
+
+
+    <!-- EXPERIENCIA -->
+    <section>
+
+      <h2>
+        Experiencia laboral
+      </h2>
+
+      <div class="item">
+
+        <div class="item-head">
+
+          <div>
+
+            <h3>
+              Mesera
+            </h3>
+
+            <div class="place">
+              Restaurante de mariscos “El Atorón de Toluquilla”
+            </div>
+
+          </div>
+
+          <div class="date">
+            Febrero 2026 – Actualidad
+          </div>
+
+        </div>
+
+
+        <ul>
+
+          <li>
+            Atención y servicio al cliente.
+          </li>
+
+          <li>
+            Toma y seguimiento de pedidos.
+          </li>
+
+          <li>
+            Organización y limpieza del área de trabajo.
+          </li>
+
+          <li>
+            Manejo de situaciones con clientes de manera amable y profesional.
+          </li>
+
+          <li>
+            Cumplimiento de estándares de atención y calidad.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROYECTO -->
+    <section>
+
+      <h2>
+        Proyecto destacado
+      </h2>
+
+
+      <div class="project">
+
+        <h3>
+          Desarrollo de sistema digital para gestión de reservaciones
+        </h3>
+
+
+        <p style="font-size:13.5px;margin:8px 0 10px">
+
+          Desarrollo de un software basado en una problemática identificada
+          en mi trabajo actual como mesera: la falta de un sistema actualizado
+          para consultar y organizar las reservaciones del restaurante.
+
+          La propuesta busca facilitar al personal la visualización de las
+          reservaciones del día y su relación con la distribución de mesas,
+          ayudando a reducir confusiones y mejorar la coordinación del servicio.
+
+        </p>
+
+
+        <span class="tag">
+          HTML
+        </span>
+
+        <span class="tag">
+          Solución de problemas
+        </span>
+
+        <span class="tag">
+          Procesos de negocio
+        </span>
+
+        <span class="tag">
+          Experiencia del cliente
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- EDUCACIÓN -->
+    <section>
+
+      <h2>
+        Educación
+      </h2>
+
+
+      <div class="edu">
+
+        <strong>
+          Ingeniería en Negocios
+        </strong>
+
+        <br>
+
+        Universidad de Guadalajara (UDG) · CU Tlaquepaque
+
+        <br>
+
+        <span style="font-size:13px;color:#667384">
+
+          2025 – Actualidad · Actualmente cursando el 3.er semestre
+
+        </span>
+
+      </div>
+
+
+      <div class="edu">
+
+        <strong>
+          Preparatoria No. 6 (UDG)
+        </strong>
+
+        <br>
+
+        Universidad de Guadalajara
+
+        <br>
+
+        <span style="font-size:13px;color:#667384">
+
+          2022 – 2025 · Certificado
+
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- PERFIL PROFESIONAL -->
+    <section>
+
+      <h2>
+        Perfil profesional
+      </h2>
+
+
+      <p style="font-size:13.5px">
+
+        Interés en desarrollarme en áreas administrativas y de negocios,
+        combinando mi formación universitaria con la experiencia directa
+        en atención al cliente y la identificación de oportunidades de
+        mejora dentro de los procesos de trabajo.
+
+      </p>
+
+    </section>
+
+
+    <div class="footer-note">
+      Currículum actualizado · 2026
+    </div>
+
+  </main>
+
+</div>
+
+
+<!-- DESCARGAR HTML -->
+<script>
+
+function descargarCV(){
+
+  const contenido =
+    '<!DOCTYPE html>\n' +
+    document.documentElement.outerHTML;
+
+  const blob = new Blob(
+    [contenido],
+    {type:'text/html;charset=utf-8'}
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+
+  a.href = url;
+
+  a.download =
+    'CV_Diana_Herrera_Garcia.html';
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  a.remove();
+
+  URL.revokeObjectURL(url);
+
+}
+
+</script>
+
+</body>
+</html>
+```
